@@ -94,6 +94,14 @@ public class MaterialShowcase: UIView {
     
     configure()
   }
+	
+  public init(container: UIView) {
+    // Create frame
+    let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+    super.init(frame: frame)
+    containerView = container;
+    configure()
+  }
   
   // No supported initilization method
   required public init?(coder aDecoder: NSCoder) {
@@ -199,11 +207,11 @@ extension MaterialShowcase {
   /// Initializes default view properties
   func configure() {
     backgroundColor = UIColor.clear
-    guard let window = UIApplication.shared.delegate?.window else {
+    setDefaultProperties()
+    guard let window = UIApplication.shared.delegate?.window, containerView == nil  else {
       return
     }
-    containerView = window
-    setDefaultProperties()
+    containerView = window 
   }
   
   func setDefaultProperties() {
