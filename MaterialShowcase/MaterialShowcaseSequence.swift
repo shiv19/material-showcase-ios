@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MaterialShowcaseSequence {
+@objc public class MaterialShowcaseSequence {
     
     var showcaseArray : [MaterialShowcase] = []
     var currentCase : Int = 0
