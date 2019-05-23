@@ -14,11 +14,11 @@ public class MaterialShowcaseSequence {
     var currentCase : Int = 0
     var key : String?
     
-    public func temp(_ showcase: MaterialShowcase) -> MaterialShowcaseSequence {
+    @objc public func temp(_ showcase: MaterialShowcase) -> MaterialShowcaseSequence {
         showcaseArray.append(showcase)
         return self
     }
-    public func start() {
+    @objc public func start() {
         guard !getUserState(key: self.key) else {
             return
         }
@@ -29,7 +29,7 @@ public class MaterialShowcaseSequence {
     }
     
     /// Set user show retry
-    public func setKey(key : String? = nil) -> MaterialShowcaseSequence {
+    @objc public func setKey(key : String? = nil) -> MaterialShowcaseSequence {
         guard key != nil else {
             return self
         }
@@ -38,7 +38,7 @@ public class MaterialShowcaseSequence {
     }
     
     /// Remove user state
-    public func removeUserState(key : String = MaterialKey._default.rawValue) {
+    @objc public func removeUserState(key : String = MaterialKey._default.rawValue) {
         UserDefaults.standard.removeObject(forKey: key)
     }
     /// Remove user state
@@ -48,9 +48,9 @@ public class MaterialShowcaseSequence {
         }
         return UserDefaults.standard.bool(forKey: key!)
     }
-    public init() { }
+    @objc public init() { }
     
-    public func showCaseWillDismis() {
+    @objc public func showCaseWillDismis() {
         guard self.showcaseArray.count > currentCase else {
             //last index
             guard self.key != nil else {
