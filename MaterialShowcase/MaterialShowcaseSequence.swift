@@ -48,7 +48,6 @@ import Foundation
         }
         return UserDefaults.standard.bool(forKey: key!)
     }
-    public init() { }
     
     @objc public func showCaseWillDismis() {
         guard self.showcaseArray.count > currentCase else {
